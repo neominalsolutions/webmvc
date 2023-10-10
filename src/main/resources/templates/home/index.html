@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- direkt olarak static klasörü içerisinde arayacağı için styles.css ismini yazmak yeterlidir -->
+  <!-- <link rel="stylesheet" th:href="@{/styles.css}"> -->
+  <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+
+<body>
+
+  <h1>Anasayfa</h1>
+
+  <div th:text="${5 + 10}"></div>
+  <div th:text="5 * 10"></div>
+  <!-- 15 result -->
+  <!-- template string bir değer bind ettik -->
+  <div th:text="${message}"></div>
+
+  <!-- th:if -->
+  <!-- ternaryif kullanımı -->
+  <div th:if="${isActive}">
+    Aktif
+  </div>
+  <!-- unless kullnımı if not -->
+  <div th:unless="${isActive}">
+    Pasif
+  </div>
+
+  <!-- ternary if ile active pasif class tanımla -->
+  <div th:class="${isActive ? 'active':'passive'}"></div>
+
+  <!-- html element bind etme -->
+
+  <!-- text ile utext arasında fark var -->
+  <!-- text string değerleri ekrana basar utext html render eder. -->
+  <div th:utext="${htmlContent}"></div>
+
+
+  <!-- th text if kullanımı -->
+  <div th:text="10 % 2 == 0 ? 'kalansız':'kalanlı'"></div>
+
+
+  <!-- 
+    https://www.baeldung.com/spring-thymeleaf-3-expressions
+   -->
+
+  <div th:object="${user}">
+    <!-- obje dizini içerisindeki değerleri ekrana bastık. -->
+    <span th:text="*{#strings.capitalizeWords(name)}"></span> <span th:text="*{#strings.toUpperCase(surname)}"></span>
+  </div>
+
+  <th-block th:with="u=${user}">
+
+    <span th:text="${u.name}"></span><span th:text="${u.surname}"></span>
+  </th-block>
+
+  <ul>
+    <li th:each="user:${users}">
+      <span th:text="${user.name}"></span><span th:text="${user.surname}"></span>
+    </li>
+  </ul>
+
+</body>
+</html>

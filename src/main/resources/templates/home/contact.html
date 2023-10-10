@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{layouts/_layout :: layout(
+    title='İletişim',
+    htmlContent=~{this :: content}, 
+    styles=~{this :: styles}, scripts=~{this :: scripts}
+  )}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <th:block th:fragment="styles"></th:block>
+</head>
+
+<body>
+
+
+
+
+  <th:block th:fragment="content">
+
+    <!-- <div th:insert="~{layouts/_nav :: navbar }"></div> -->
+
+    İletişim Sayfası
+  </th:block>
+
+  <th:block th:fragment="scripts"></th:block>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:fragment="layout(title,htmlContent,styles, scripts)">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${title}"></title>
+  <!-- dinamik title bilgisi -->
+  <!-- title bir value olduğu replace etmeden kullandık -->
+  <link rel="stylesheet" th:href="@{/styles.css}">
+  <th:block th:replace="${styles}"></th:block>
+</head>
+
+<body>
+
+  <!-- layout controller actionlardan gelen dinamik değerleri geçebiliyoruz. -->
+  <div th:if="${message != ''}" th:text="${message}"></div>
+
+  <!-- navbar fragment name göre fragmentı getir -->
+  <div th:insert="~{layouts/_nav :: navbar }"></div>
+
+  <!-- <nav>
+    <a th:href="@{/about}">Hakkımzda</a>
+    <a th:href="@{/contact}">İletişim</a>
+    <a th:href="@{/persons}">Kişiler</a>
+    <a th:href="@{/persons/create}">Yeni Kişi Kaydı</a>
+  </nav> -->
+
+  <br>
+
+  <!-- renderBody -->
+  <!-- bir html elementi render ettiğimiz için th:replace -->
+  <!-- htmlContent olarak geleni replace et  -->
+  <div th:replace="${htmlContent}"></div>
+
+  <footer>
+    Alt Bilgi
+  </footer>
+
+  <!-- tüm js dosyalarını buraya ekleyelim -->
+  <!-- ${scripts} blogundan önce tanımlayalım. -->
+  <th:block th:replace="${scripts}"></th:block>
+</body>
+
+</html>
+
+<!-- 2 türlü fragment tanımı var sabit bir fragment isminde çağırma yada parametrik çağırma -->

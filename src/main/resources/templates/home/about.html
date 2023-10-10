@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{layouts/_layout :: layout(
+  title='About Page',htmlContent= ~{this :: content},
+  styles= ~{this :: styles},
+  scripts= ~{this :: scripts }
+  )}">
+<!-- head alanı içerisine sayfaya özgü stil tanımlaması yapmak için th:block tanımı kullanırız bu sayede herhangi bir kapsayıcı element oluşmadan içerik layout içerisinde konumladığımız noktaya replace olur -->
+<th:block th:fragment="styles">
+  <style>
+    body {
+      background-color: bisque;
+      color: blue;
+    }
+  </style>
+</th:block>
+
+<body>
+  <div th:class="active" th:fragment="content">
+    Hakkımızda Sayfası
+    <button th:onclick="showMessage()">showMessage</button>
+  </div>
+
+  <th:block th:fragment="scripts">
+    <script>
+
+      function showMessage() {
+        alert('message');
+      }
+
+    </script>
+  </th:block>
+</body>
+
+</html>

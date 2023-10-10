@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head xmlns="http://www.thymeleaf.org" th:replace="~{layouts/_adminLayout :: layout(~{this :: content})}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <th:block th:fragment="content">
+    Admin Page Home
+  </th:block>
+</body>
+
+<!-- https://ultraq.github.io/thymeleaf-layout-dialect  Spring Boot 2 de Layout Dialect yapısını kullanıyoruz. Spring Boot 3 de pom xml doyasında şuan için bir destek yok. -->
+
+</html>

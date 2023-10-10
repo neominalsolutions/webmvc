@@ -1,0 +1,11 @@
+<!-- not:view'e gelen model değerini direkt olarak template uygulayabiliyoruz -->
+<!-- açtığımız fragmentlar component özelliği gösteriyor bu sayede başka html sayfalarında kullanacağımız arayüzler parçalı bir html olarak oluşturup başka sayfalardan th:insert ile doma basabiliyoruz. -->
+
+<th:block th:fragment="navbar">
+  <nav>
+    <a th:href="@{/about}">Hakkımzda</a>
+    <a th:href="@{/contact}">İletişim</a>
+    <a th:href="@{/persons}">Kişiler</a>
+    <a th:href="@{/persons/create}">Yeni Kişi Kaydı</a>
+  </nav>
+</th:block>
