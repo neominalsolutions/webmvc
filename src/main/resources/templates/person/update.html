@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{layouts/_defaultLayout :: layout(
+htmlContent= ~{this :: content})}">
+
+<body class="container">
+
+  <div th:class="active" th:fragment="content">
+
+    <!-- person/update/1 -->
+    <form th:action="@{'/person/update/' + ${person.id}}" method="post" th:object="${person}">
+
+
+      <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <!-- form mapping -->
+        <input type="text" th:field="*{name}" name="" id="" class="form-control" placeholder=""
+          aria-describedby="helpId">
+        <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" id="helpId" class="text-muted"></small>
+      </div>
+
+      <div class="mb-3">
+        <label for="" class="form-label">SurName</label>
+        <input type="text" th:field="*{surname}" name="" id="" class="form-control" placeholder=""
+          aria-describedby="helpId">
+        <small th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" id="helpId" class="text-muted"></small>
+      </div>
+
+      <input type="submit" class="btn btn-success" value="güncelle">
+
+    </form>
+
+  </div>
+
+
+</body>

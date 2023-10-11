@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{layouts/_defaultLayout :: layout(
+htmlContent= ~{this :: content})}">
+
+<body class="container">
+
+  <div th:class="active" th:fragment="content">
+
+    <div class="card">
+      <img class="card-img-top" src="holder.js/100x180/" alt="Title">
+      <div class="card-body">
+        <h4 class="card-title" th:text="${person.name}"></h4>
+        <p class="card-text" th:text="${person.surname}"></p>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

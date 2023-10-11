@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{layouts/_defaultLayout :: layout(
+  htmlContent= ~{this :: content})}">
+
+
+<body>
+  <div th:class="active" th:fragment="content">
+
+    <div class="table-responsive">
+      <table class="table table-primary">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">İşlemler</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="" th:each="person:${persons}">
+            <td scope="row" th:text="${person.name}"></td>
+            <td th:text="${person.surname}"></td>
+            <td>
+              <a th:href="@{'/person/update/' + ${person.id}}">Güncelle</a>
+              <a class="text-danger" th:href="@{'/person/delete/' + ${person.id}}">Sil</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>
