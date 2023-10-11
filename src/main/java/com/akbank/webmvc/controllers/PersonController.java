@@ -131,10 +131,10 @@ public class PersonController {
 
     var entity = personRepo.findById(id).orElseThrow(EntityNotFoundException::new);
 
-    attributes.addFlashAttribute("message", "silme işlem başarılı");
-
     personRepo.delete(entity);
     // personRepo.deleteById(id);
+
+    attributes.addFlashAttribute("message", "silme işlem başarılı");
 
     // Net de TempData denk geliyor.
     return new RedirectView("/person/list");
